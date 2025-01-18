@@ -23,9 +23,10 @@ body {
 }
 
 .desserts {
-  width: 800px;
-  height: 1196px;
-  border: 5px solid green;
+  /* width: 800px; */
+  width: calc(3.19 * var(--card-width));
+  height: calc(3.37 * var(--card-height));
+  /* border: 5px solid green; */
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start; /* סדר כרטיסים בצד שמאל */
@@ -35,6 +36,7 @@ body {
 .card {
   width: var(--card-width);
   height: var(--card-height);
+
   /*   border: 5px solid blue;*/
   display: flex;
   flex-direction: column;
@@ -42,7 +44,7 @@ body {
 .card_img {
   display: flex;
   width: var(--card-width)-2px;
-  height: 240px;
+  height: var(--card-height);
   /*  border: 5px solid red; */
   flex-direction: column;
   position: relative;
@@ -52,7 +54,7 @@ body {
 }
 .card_details {
   width: var(--card-width);
-  height: 68px;
+  height: var(--card-height);
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -69,8 +71,10 @@ body {
   width: auto;
   border: 1px solid black;
   position: absolute;
-  top: 91%; /* ממרכז אנכית לפי אחוזים */
-  left: 21%; /* ממרכז אופקית לפי אחוזים */
+  /* top: 91%; ממרכז אנכית לפי אחוזים */
+  /* left: 21%; ממרכז אופקית לפי אחוזים */
+  top: 90%;
+  left: 20%;
 }
 
 .add-to-cart-btn .icon {
@@ -90,14 +94,18 @@ body {
   font-weight: 600;
 }
 .cart {
+  display: flex;
+  flex-direction: column;
   margin-top: 77px;
-  margin-left: 2px;
+  margin-left: 25px;
   width: 384px;
+  min-width: 239px;
+
   height: 299px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-self: center;
+  /* align-items: center;
+  justify-self: center; */
 }
 /* 
 למה לא עובד 
@@ -109,10 +117,7 @@ body {
 
 */
 
-.sas{
-    align-self: flex-start;
-    padding-left: 10px;
-}
+
 .cart span {
   color: hsl(12 20% 44% / var(--tw-text-opacity));
 }
@@ -131,4 +136,52 @@ body {
 .text-sm {
   font-size: 0.875rem;
   line-height: 1.25rem;
+}
+
+@media (max-width: 1197px) {
+
+.main{
+  flex-direction: column;
+}
+.desserts{
+  gap: 15px;
+}
+:root {
+  --card-width: 213.66px;
+  --card-height: 319px; 
+  --tw-text-opacity: 1;
+}
+.add-to-cart-btn {
+  left:19%;
+}
+.cart_svg{
+  align-self: flex-end;
+}
+.cart
+{
+  width: 457px;
+}
+}
+@media (max-width: 691px) {
+  :root {
+    --card-width: 213px;
+    --card-height: 319px; 
+    --tw-text-opacity: 1;
+  }
+  .desserts{
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: unset;
+    gap: 0; /* רווח קבוע בין הכרטיסים */
+    flex-direction: column;
+    width: calc(1 * var(--card-width));
+    height: calc(1 * var(--card-height)*10.5);
+  }
+  .cart_svg {
+    align-self: flex-start;
+  }
+  .cart
+  {
+    margin-left: 0px;
+  }
 }
