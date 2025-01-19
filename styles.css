@@ -168,6 +168,9 @@ body {
     --card-height: 319px; 
     --tw-text-opacity: 1;
   }
+  .main{
+    align-items: center;
+  }
   .desserts{
     flex-wrap: nowrap;
     justify-content: space-around;
